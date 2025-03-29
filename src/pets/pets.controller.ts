@@ -13,11 +13,6 @@ export class PetsController {
     return this.petsService.create(createPetDto);
   }
 
-  @MessagePattern('findAllPets')
-  findAll() {
-    return this.petsService.findAll();
-  }
-
   @MessagePattern('findOnePet')
   findOne(@Payload() id: number) {
     return this.petsService.findOne(id);
@@ -26,10 +21,5 @@ export class PetsController {
   @MessagePattern('updatePet')
   update(@Payload() updatePetDto: UpdatePetDto) {
     return this.petsService.update(updatePetDto.id, updatePetDto);
-  }
-
-  @MessagePattern('removePet')
-  remove(@Payload() id: number) {
-    return this.petsService.remove(id);
   }
 }
